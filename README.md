@@ -5,6 +5,7 @@ Employee Management System
 This directory contains structured SQL database projects designed to demonstrate practical database design and query skills using PostgreSQL.
 
 📌 Projects Included
+
 1️⃣ Employee Management System
 A relational database project that includes:
 
@@ -15,7 +16,7 @@ GROUP BY with aggregate functions
 Subqueries (Second highest salary)
 View creation for reporting
 
-2. Library Management System
+2️⃣ Library Management System
 A relational database project that includes:
 
 Three tables with Primary Key and Foreign Keys
