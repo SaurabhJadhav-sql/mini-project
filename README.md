@@ -14,4 +14,11 @@ JOIN queries
 GROUP BY with aggregate functions
 Subqueries (Second highest salary)
 View creation for reporting
-Library Management System
+
+2. Library Management System
+A relational database project that includes:
+
+Three tables with Primary Key and Foreign Keys
+Data Insertion
+Group BY with aggregate Function
+Aggregate Functions.
