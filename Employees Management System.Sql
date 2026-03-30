@@ -172,3 +172,62 @@ JOIN jobs j
 -- =====================================================
 
 SELECT * FROM employees_details;
+
+=======================================================
+7) Show Employees Without Department.
+=======================================================
+
+Select Employee_id,Name
+From Employees
+Where Department_id is null;
+
+======================================================
+8) Replace Null Values
+=====================================================
+
+Select Name,Coalesce(Salary,0) As Salary
+From Employees
+
+======================================================
+9) Employees With Department Names(Left Join)
+======================================================
+
+Select E.Name,D.Department_Name 
+From Employees E Left Join Departments D
+On E.Department_id = D.Department_id;
+
+================================================================
+10) Rank all employees based on their salary in descending order
+================================================================
+
+Select Name,
+Dense_Rank() Over(Order by Salary Desc) As rnk
+From Employees;
+
+=================================================================
+11) Rank Employees within each department based on salary
+=================================================================
+
+Select e.Name,d.Department_name,e.Salary,
+Rank() Over(Partition by D.Department_Name Order by E.Salary Desc) AS Dept_rnk
+From Employees E Join Departments D 
+On E.Department_id = D.Department_id;
+
+==================================================================
+12) Find all employees  whose salary is not assigned.
+==================================================================
+
+Select * From Employees 
+Where Salary is Null;
+
+===========================================================================
+13) Display employee Name,department,salary,And rank within each department
+===========================================================================
+
+Select * From 
+(Select E.Name,D.Department_Name,E.Salary,Rank()
+Over(Partition by D.Department_Name Order by E.Salary Desc) As Rnk
+From Employees E Left Join Departments D 
+On E.Department_id = D.Department_id)t
+Where rnk = 1;
+
