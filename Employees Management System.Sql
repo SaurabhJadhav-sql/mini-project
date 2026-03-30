@@ -174,7 +174,7 @@ JOIN jobs j
 SELECT * FROM employees_details;
 
 -- =======================================================
--- 7)  Show Employees Without Department.
+-- 7️⃣ Show Employees Without Department.
 --=======================================================
 
 Select Employee_id,Name
@@ -182,14 +182,14 @@ From Employees
 Where Department_id is null;
 
 -- ======================================================
--- 8) Replace Null Values
+-- 8️⃣ Replace Null Values
 -- =====================================================
 
 Select Name,Coalesce(Salary,0) As Salary
 From Employees
 
 -- ======================================================
--- 9) Employees With Department Names(Left Join)
+-- 9️⃣ Employees With Department Names(Left Join)
 -- ======================================================
 
 Select E.Name,D.Department_Name 
@@ -197,7 +197,7 @@ From Employees E Left Join Departments D
 On E.Department_id = D.Department_id;
 
 -- ================================================================
--- 10) Rank all employees based on their salary in descending order
+-- 🔟 Rank all employees based on their salary in descending order
 -- ================================================================
 
 Select Name,
