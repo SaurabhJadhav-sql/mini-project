@@ -46,6 +46,11 @@ INSERT INTO jobs VALUES
 (1, 'Software Developer', 40000, 100000),
 (2, 'HR Manager', 30000, 80000),
 (3, 'Accountant', 35000, 90000);
+(4, 'Data Analyst', 35000, 85000);
+(5, 'Backend Developer', 50000, 120000);
+(6, 'Frontend Developer', 40000, 95000);
+(7,'DevOps Engineer', 60000, 130000);
+(8, 'QA Engineer', 30000, 70000);
 
 -- ==========================================
 -- Insert Data into Employees
@@ -56,6 +61,9 @@ INSERT INTO employees VALUES
 (2, 'Priya', 60000, 2, 2, '2021-06-10'),
 (3, 'Rahul', 85000, 1, 1, '2020-03-20'),
 (4, 'Sneha', 50000, 3, 3, '2023-02-05');
+(5, 'Rohit', Null , 1, 1, '2022-07-10');
+(6, 'Neha', 70000, Null, 2, '2021-09-15');
+(7, 'Karan' , 65000, 1, Null , Null);
 
 -- ==========================================
 -- Show employees with their department name
