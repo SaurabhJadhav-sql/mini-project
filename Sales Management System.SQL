@@ -2,11 +2,73 @@
 Title:-Sales Database.
 ==========================
 
-============================================================================================================================================================================================
+=================================================================================================
   
-Create table Product_info(Product_id Int Primary key,Product_Name Varchar(50),Product_price Int);
-Create table Customers_table(Customer_id int Primary key,Customer_Name Varchar(50),Customer_city Varchar(50));
-Create table Orders_Table(Order_id Int Primary Key,Customer_id Int, Foreign Key(Customer_id) References Customers_Table(Customer_id),Order_Date Date);
-Create Table Order_items(Order_id Int,Foreign key(Order_id) References Orders_Table(Order_id),Product_id Int,Foreign Key(Product_id) References Product_Info(Product_id),Quantity Int);
+Create table Product_info
+(Product_id Int Primary key,
+Product_Name Varchar(50),
+Product_price Int);
 
-=============================================================================================================================================================================================
+=================================================================================================
+
+=================================================================================================
+
+Create table Customers_table
+(Customer_id int Primary key,
+Customer_Name Varchar(50),
+Customer_city Varchar(50));
+
+=================================================================================================
+
+=================================================================================================
+
+Create table Orders_Table
+(Order_id Int Primary Key,
+Customer_id Int, Foreign Key(Customer_id) References Customers_Table(Customer_id),
+Order_Date Date);
+
+=================================================================================================
+
+=================================================================================================
+
+Create Table Order_items
+(Order_id Int,Foreign key(Order_id) References Orders_Table(Order_id),
+Product_id Int,Foreign Key(Product_id) References Product_Info(Product_id),
+Quantity Int);
+
+=================================================================================================
+
+=================================================================================================
+
+Insert INTO Product_Info Values
+(1,'Play Station 5',60000),(2,'IQ 15R',44000),(3,'Lenovo LOQ',100000),(4,'Oppo Reno15 5G',45000),
+(5,'HOPPUP Xo6 Gaming Earbuds',800),(6,'GOBOULT Astra Earbuds',1300),(7,'Boat Rockerz 421',1199),
+(8,'BenQ Smart Projector',124000),(9,'Hp 15',75000),(10,'Samsung Galaxy Tab A11',33000);
+
+===================================================================================================
+
+===================================================================================================
+
+Insert INTO Customers_table Values
+(1,'Rohit','Pune'),(2,'Saurabh','Satara'),(3,'Aryan','Khandala'),(4,'Virat','Delhi'),
+(5,'Jay','Pune'),(6,'Mohit','Pune'),(7,'Suresh','Bangalore'),
+(8,'Anil','Kolkata'),(9,'Arjun ','Kolkata'),(10,'Priya','Nagpur');
+
+====================================================================================================
+
+=====================================================================================================
+
+Insert INTO Orders_Table Values
+(1,1,'2017-05-11'),(2,1,'2022-11-22'),(3,2,'2020-04-15'),(4,2,'2026-05-19'),
+(5,3,'2025-03-14'),(6,4,'2014-12-22'),(7,5,'2023-12-31'),
+(8,6,'2023-01-14'),(9,7,'2019-07-11'),(10,7,'2019-05-19'),(11,9,'2021-09-11');
+
+=====================================================================================================
+
+=====================================================================================================
+
+Insert INTO Order_items Values(1,1,2),(2,3,1),(3,4,1),(4,1,1),
+(5,9,1),(6,5,2),(7,3,1),
+(8,4,1),(9,8,10),(10,10,1),(11,2,1);
+
+=====================================================================================================
