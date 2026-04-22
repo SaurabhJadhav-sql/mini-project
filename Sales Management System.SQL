@@ -111,3 +111,12 @@ Select Avg(Order_total)As Avg_Order_Value From(Select O.Order_id,Sum(Oi.Quantity
 Join Order_Items Oi On O.Order_id = Oi.Order_id Join Product_Info P on Oi.Product_id = P.Product_id Group by O.Order_id)As sub;
 
 =======================================================================================================================================
+
+=======================================================================================================================================
+--Which Customer Spent Most on a single product
+
+Select C.Customer_name,P.Product_Name,Sum(P.Product_Price) From Customers_Table C Join Orders_Table O On C.Customer_Id = O.Customer_Id
+Join Order_Items Oi On O.Order_id = Oi.Order_id
+Join Product_Info P On P.Product_id = Oi.Product_id Group by C.Customer_Name,P.Product_Name Order by Sum(P.Product_Price) Desc Limit 1;
+
+=========================================================================================================================================
