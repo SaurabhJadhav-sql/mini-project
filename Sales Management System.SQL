@@ -120,3 +120,50 @@ Join Order_Items Oi On O.Order_id = Oi.Order_id
 Join Product_Info P On P.Product_id = Oi.Product_id Group by C.Customer_Name,P.Product_Name Order by Sum(P.Product_Price) Desc Limit 1;
 
 =========================================================================================================================================
+
+========================================================================================================================================
+--Which Customers Placed the Most numbers of orders?
+
+Select C.Customer_Name,Count(O.Order_id)As Total_Orders From Customers_Table C
+Join Orders_Table O On C.Customer_id = O.Customer_id Group by C.Customer_Name Order by Total_Orders Desc Limit 1; 
+
+=========================================================================================================================================
+
+========================================================================================================================================
+--What is the average order value across all orders?
+
+Select Avg(Ord_Values)As Avg_Order_Value From (Select O.Order_id,Sum(P.Product_price * Oi.Quantity)As Ord_Values From
+Orders_table O Join Order_items Oi On O.Order_id = Oi.Order_id Join Product_info P On P.Product_id = Oi.Product_id Group by O.Order_id)t;
+
+========================================================================================================================================
+
+========================================================================================================================================
+
+--Which Product is least popular (lowest total quantity sold)?
+
+Select P.Product_Name,Sum(Oi.Quantity)As Least_Amount From Orders_Table O Join Order_Items Oi On O.Order_id = Oi.Order_id
+Join Product_Info P On P.Product_id = Oi.Product_id  Group by P.Product_Name 
+Having Sum(Oi.Quantity) =(select Min(Total_Qty) From (Select Sum(Quantity)AS Total_Qty From Order_items Group by Product_id));
+
+========================================================================================================================================
+
+========================================================================================================================================
+
+--Which Customer has Spent the most Money in Total and how many Products did they buy?
+
+Select C.Customer_name,Sum(P.Product_Price * Oi.Quantity)As Total_Spent,Sum(Oi.Quantity)As Total_Purchase 
+From Customers_Table C Join Orders_Table O On C.Customer_id = O.Customer_id
+Join Order_items Oi On O.Order_id = Oi.Order_id Join Product_info P On P.Product_id = Oi.Product_id
+Group by C.Customer_Name Order by Total_Spent Desc Limit 1;  
+
+=========================================================================================================================================
+
+=========================================================================================================================================
+
+--Top 3 Cities by total revenue Not just the top 1
+
+Select C.Customer_City,Sum(P.Product_Price * Oi.Quantity)As Revenu From Customers_Table C Join Orders_Table O On C.Customer_id = O.Customer_id
+Join Order_items Oi On O.Order_id = Oi.Order_id Join Product_info P On P.Product_id = Oi.Product_id
+Group by C.Customer_City Order by Revenu Desc Limit 3;
+
+===========================================================================================================================================
