@@ -167,3 +167,22 @@ Join Order_items Oi On O.Order_id = Oi.Order_id Join Product_info P On P.Product
 Group by C.Customer_City Order by Revenu Desc Limit 3;
 
 ===========================================================================================================================================
+
+--Find Customers Who havent order anything
+
+Select C.Customer_id From Customers_Table C Left Join Orders_Table O On C.Customer_id = O.Customer_id  Where O.Customer_id Is null;
+
+===========================================================================================================================================
+
+===========================================================================================================================================
+
+--Which Customer has spent more than the average customer spending
+
+Select * From (Select C.Customer_id,Sum(P.Product_Price * Oi.Quantity)As Total_Spent
+From Customers_Table C Join Orders_Table O On C.Customer_id = O.Customer_id
+Join Order_Items Oi On O.Order_id = Oi.Order_id Join Product_Info P On P.Product_id = Oi.Product_id 
+Group by C.Customer_id)t Where Total_Spent > (Select Avg(Total_Spent) From(Select Sum(P.Product_Price * Oi.Quantity)As Total_Spent
+From Orders_Table O Join Order_Items Oi On O.Order_id = Oi.Order_id Join Product_info P On P.Product_id = OI.Product_id
+Group by O.Customer_id)avg_table );
+
+============================================================================================================================================
