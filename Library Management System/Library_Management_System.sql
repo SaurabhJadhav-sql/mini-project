@@ -1,4 +1,4 @@
-==========================================
+-- ===========================================
 -- Library Management System
 -- Author: Saurabh Jadhav
 -- Database: PostgreSQL
@@ -77,7 +77,7 @@ INSERT INTO members VALUES
 INSERT INTO librarians VALUES
 (1, 'Ravi Kumar', 'ravi@library.com', '2020-06-15'),
 (2, 'Neha Gupta', 'neha@library.com', '2021-03-22'),
-(3, 'Sanjay Patel', 'sanjay@library.com', '2019-09-10')
+(3, 'Sanjay Patel', 'sanjay@library.com', '2019-09-10');
 
 INSERT INTO borrow_records VALUES
 (1, 1, 1, 1, '2024-01-10', '2024-01-20'),
@@ -126,14 +126,14 @@ ON b.member_id = m.member_id;
 --Count Total books per category
 Select category,Count(*) AS total_books
 From Books
-Group by Category
+Group by Category;
 
 
     
 --Find total copies of books per category
 Select Category,Sum(Total_Copies) As Total_Copies
 From Books 
-Group by Category 
+Group by Category ;
 
 
     
@@ -153,7 +153,7 @@ Where available_copies < 2;
 
 --Count total library members
 Select Count(*) As total_available_members
-From Members  
+From Members  ;
 
 
     
